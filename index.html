@@ -3,144 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LÆTITIA BILL | Contemporary Womenswear, Made Gentle</title>
-    <meta name="description" content="Discover LÆTITIA BILL Collection 01: contemporary womenswear shaped by considered form, gentle softness and sculptural silhouettes.">
-    <link rel="canonical" href="https://laetitiabill.com/">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LÆTITIA BILL">
-    <meta property="og:title" content="LÆTITIA BILL | Contemporary Womenswear, Made Gentle">
-    <meta property="og:description" content="Discover Collection 01: contemporary womenswear shaped by considered form, gentle softness and sculptural silhouettes.">
-    <meta property="og:url" content="https://laetitiabill.com/">
-    <meta property="og:image" content="https://laetitiabill.com/Editorial%20Schoot/DSCF2958.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LÆTITIA BILL | Contemporary Womenswear, Made Gentle">
-    <meta name="twitter:description" content="Discover Collection 01: contemporary womenswear shaped by considered form, gentle softness and sculptural silhouettes.">
-    <meta name="twitter:image" content="https://laetitiabill.com/Editorial%20Schoot/DSCF2958.jpg">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "LÆTITIA BILL",
-            "url": "https://laetitiabill.com/",
-            "email": "hello@laetitiabill.com"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "LÆTITIA BILL",
-            "url": "https://laetitiabill.com/",
-            "inLanguage": "en"
-        }
-    </script>
-
-    <link rel="preload" href="https://fonts.gstatic.com/s/bodonimoda/v28/aFTQ7PxzY382XsXX63LUYJSKSKg.woff2" as="font" type="font/woff2" crossorigin>
+    <title>LÆTITIA BILL | Coming Soon</title>
+    <meta name="description" content="LÆTITIA BILL Collection 01. Luxury, made gentle. Join the list to be the first to know.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <script src="cookie-consent.js" defer></script>
     <script src="cart-count.js" defer></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+            background: #000;
+            color: #fff;
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+            font-weight: 300;
+            text-align: center;
+            padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -3px;
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url("Coming_Soon_P.jpg") center / cover no-repeat;
+            filter: blur(2px);
+        }
+
+        .site-header {
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 440px;
+            width: 100%;
+            padding: 48px 24px;
+        }
+
+        h1 {
+            font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+            font-size: clamp(26px, 6vw, 42px);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+
+        h1.success-heading {
+            font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            margin: 22px auto;
+            background: #fff;
+        }
+
+        .lead {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .success-message {
+            margin-top: 22px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            align-self: center;
+            margin-top: 30px;
+            color: inherit;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+        }
+
+        .back-link span {
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover span,
+        .back-link:focus-visible span { transform: translateX(-3px); }
+        .success-message[hidden],
+        .back-link[hidden] { display: none; }
+
+        @keyframes success-fade-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        main.success-state > h1,
+        main.success-state > .divider,
+        main.success-state > .success-message,
+        main.success-state > .back-link {
+            animation: success-fade-in 700ms ease-out both;
+        }
+
+        main.success-state > .divider { animation-delay: 100ms; }
+        main.success-state > .success-message { animation-delay: 200ms; }
+        main.success-state > .back-link { animation-delay: 300ms; }
+
+        main.returning-state > h1,
+        main.returning-state > .divider,
+        main.returning-state > .lead,
+        main.returning-state > form {
+            animation: success-fade-in 700ms ease-out both;
+        }
+
+        main.returning-state > .divider { animation-delay: 100ms; }
+        main.returning-state > .lead { animation-delay: 200ms; }
+        main.returning-state > form { animation-delay: 300ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            main.success-state > h1,
+            main.success-state > .divider,
+            main.success-state > .success-message,
+            main.success-state > .back-link,
+            main.returning-state > h1,
+            main.returning-state > .divider,
+            main.returning-state > .lead,
+            main.returning-state > form {
+                animation: none;
+            }
+        }
+
+        form { display: flex; flex-direction: column; gap: 16px; }
+        form[hidden] { display: none; }
+
+        .field-error {
+            color: #c084ff;
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .field-error[hidden] { display: none; }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+        }
+
+        input[type="email"]::placeholder { color: #fff; opacity: 1; }
+        input[type="email"]:focus-visible { border-width: 2px; }
+        input[aria-invalid="true"] { border-color: #a855f7; }
+
+        button {
+            padding: 16px;
+            border: 1px solid #fff;
+            background: #fff;
+            color: #1a1a1a;
+            font: inherit;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button:hover, button:focus-visible { opacity: 0.82; }
+
+        .consent {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .consent input { margin-top: 3px; }
+        .consent a { color: inherit; }
+
+        @media (max-width: 700px) {
+            main { padding: 36px 24px; }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="header site-header header--scroll-reveal">
+    <header class="header site-header">
         <a href="index.html" class="logo">LÆTITIA BILL</a>
-
-        <div class="header-right">
-            <a href="account.html" class="nav-link account-link" aria-label="Account" title="Account">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="12" cy="8" r="4"></circle>
-                    <path d="M4 21c1.8-3.3 5-5 8-5s6.2 1.7 8 5"></path>
-                </svg>
-            </a>
-            <a href="favorites.html" class="nav-link wishlist-link" aria-label="Favorites" title="Favorites"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"></path></svg><span class="wishlist-count">0</span></a>
-            <a href="cart.html" class="nav-link bag-count" aria-live="polite">BAG (0)</a>
-        </div>
     </header>
 
-
     <main>
+        <h1>COMING SOON</h1>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="lead">Our first collection is coming soon.<br>Leave your email to be the first to know.</p>
+        <p class="success-message" role="status" aria-live="polite" hidden>You're on the list. We'll be in touch as soon as our debut collection launches.</p>
+        <a class="back-link" href="#email-input" hidden><span aria-hidden="true">←</span> BACK</a>
 
-        <!-- HERO -->
-        <section class="hero">
-            <video class="hero-image" autoplay muted loop playsinline preload="metadata" aria-label="Fina editorial film">
-                <source src="Homepage/Fina%20Video.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay">
-                <h1>LÆTITIA BILL</h1>
-                <p>LUXURY, MADE GENTLE.</p>
-                <a href="collection.html" class="hero-button">
-                    DISCOVER THE COLLECTION
-                </a>
-            </div>
-        </section>
+        <form action="HIER-MAILERLITE-URL" method="post" novalidate>
+            <input id="email-input" type="email" name="fields[email]" placeholder="EMAIL ADRESS" aria-label="Email address" aria-describedby="email-error" required>
+            <p class="field-error" id="email-error" role="alert" hidden></p>
 
-        <section class="hero-editorial-image" aria-label="Editorial fashion photograph">
-            <img class="hero-editorial-photo" src="Editorial%20Schoot/DSCF2958.jpg" alt="Editorial portrait from Collection 01">
-            <div class="hero-editorial-copy">
-                <p>COLLECTION 01</p>
-                <h2>DISCOVER OUR<br>FIRST COLLECTION.</h2>
-                <span>An intimate study in softness, shape and the way we move.</span>
-                <a href="collection.html">EXPLORE THE COLLECTION <span aria-hidden="true">&rarr;</span></a>
-            </div>
-        </section>
+            <label class="consent">
+                <input type="checkbox" aria-describedby="consent-error" required>
+                <span>I agree to receive emails from LÆTITIA BILL. You can unsubscribe at any time. See our <a href="legal.html#privacy">Privacy Policy</a>.</span>
+            </label>
+            <p class="field-error" id="consent-error" role="alert" hidden></p>
 
-        <section class="editorial-feature" aria-label="Large editorial image placeholder">
-            <div class="editorial-feature-placeholder">
-                <div class="editorial-feature-videos" aria-label="Editorial feature videos">
-                    <video autoplay muted loop playsinline preload="metadata" aria-label="FILM 1">
-                        <source src="Homepage/Film%201.mp4" type="video/mp4">
-                    </video>
-                    <video autoplay muted loop playsinline preload="metadata" aria-label="Film 2">
-                        <source src="Homepage/Film%202.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-            <div class="editorial-feature-copy">
-                <p class="small-text">LÆTITIA BILL — COLLECTION 01</p>
-                <h2>MADE GENTLE.</h2>
-            </div>
-        </section>
-
+            <button type="submit">NOTIFY ME</button>
+        </form>
     </main>
 
-    <div id="footer">
-        <footer class="footer">
-            <div class="footer-brand">
-                <h2>LÆTITIA BILL</h2>
-                <p>© MMXXVI LÆTITIA BILL</p>
-            </div>
-            <div class="footer-column">
-                <h3>SHOP</h3>
-                <a href="collection.html">Collection</a>
-            </div>
-            <div class="footer-column">
-                <h3>INFORMATION</h3>
-                <a href="about.html">About</a>
-                <a href="material.html">Material</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-column">
-                <h3>CLIENT CARE</h3>
-                <a href="shipping.html">Shipping &amp; Returns</a>
-                <a href="size-guide.html">Size Guide</a>
-            </div>
-            <div class="footer-column">
-                <h3>FOLLOW</h3>
-                <a href="https://www.instagram.com/laetitia.bill?stkn=ZW9weDA2NnBtZGNt" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="#">TikTok</a>
-            </div>
-            <div class="footer-legal">
-                <a href="legal.html#privacy">Privacy</a>
-                <a href="legal.html#terms">Terms</a>
-                <a href="legal.html#imprint">Imprint</a>
-            </div>
-        </footer>
-    </div>
+    <script>
+        const subscribeForm = document.querySelector("form");
+        const heading = document.querySelector("main h1");
+        const lead = document.querySelector(".lead");
+        const successMessage = document.querySelector(".success-message");
+        const backLink = document.querySelector(".back-link");
+        const emailInput = subscribeForm.querySelector('input[type="email"]');
+        const consentInput = subscribeForm.querySelector('input[type="checkbox"]');
+        const emailError = document.querySelector("#email-error");
+        const consentError = document.querySelector("#consent-error");
+        const main = subscribeForm.closest("main");
 
-<script src="script.js"></script>
+        const clearError = (input, message) => {
+            input.removeAttribute("aria-invalid");
+            message.hidden = true;
+            message.textContent = "";
+        };
+
+        emailInput.addEventListener("input", () => clearError(emailInput, emailError));
+        consentInput.addEventListener("change", () => clearError(consentInput, consentError));
+
+        backLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            main.classList.remove("success-state");
+            heading.textContent = "COMING SOON";
+            heading.classList.remove("success-heading");
+            lead.hidden = false;
+            successMessage.hidden = true;
+            backLink.hidden = true;
+            subscribeForm.hidden = false;
+            emailInput.value = "";
+            consentInput.checked = false;
+            clearError(emailInput, emailError);
+            clearError(consentInput, consentError);
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                main.classList.add("returning-state");
+                subscribeForm.addEventListener("animationend", (event) => {
+                    if (event.animationName === "success-fade-in") {
+                        main.classList.remove("returning-state");
+                    }
+                }, { once: true });
+            }
+            emailInput.focus();
+        });
+
+        subscribeForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const emailIsValid = emailInput.validity.valid;
+            const consentIsChecked = consentInput.checked;
+
+            clearError(emailInput, emailError);
+            clearError(consentInput, consentError);
+
+            if (!emailIsValid) {
+                emailInput.setAttribute("aria-invalid", "true");
+                emailError.textContent = emailInput.validity.valueMissing
+                    ? "Please enter your email address."
+                    : "Please enter a valid email address.";
+                emailError.hidden = false;
+            }
+
+            if (!consentIsChecked) {
+                consentInput.setAttribute("aria-invalid", "true");
+                consentError.textContent = "Please agree to receive emails to continue.";
+                consentError.hidden = false;
+            }
+
+            if (!emailIsValid || !consentIsChecked) {
+                (emailIsValid ? consentInput : emailInput).focus();
+                return;
+            }
+
+            subscribeForm.hidden = true;
+            main.classList.add("success-state");
+            heading.textContent = "THANK YOU";
+            heading.classList.add("success-heading");
+            lead.hidden = true;
+            successMessage.hidden = false;
+            backLink.hidden = false;
+        });
+    </script>
 
 </body>
 </html>
-
