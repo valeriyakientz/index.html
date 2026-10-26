@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LÆTITIA BILL | Coming Soon</title>
+    <meta name="description" content="LÆTITIA BILL Collection 01. Luxury, made gentle. Join the list to be the first to know.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script src="cart-count.js" defer></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+            background: #000;
+            color: #fff;
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+            font-weight: 300;
+            text-align: center;
+            padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -3px;
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url("Coming_Soon_P.jpg") center / cover no-repeat;
+            filter: blur(2px);
+        }
+
+        .site-header {
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 440px;
+            width: 100%;
+            padding: 48px 24px;
+        }
+
+        h1 {
+            font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+            font-size: clamp(26px, 6vw, 42px);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+
+        h1.success-heading {
+            font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            margin: 22px auto;
+            background: #fff;
+        }
+
+        .lead {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .success-message {
+            margin-top: 22px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            align-self: center;
+            margin-top: 30px;
+            color: inherit;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+        }
+
+        .back-link span {
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover span,
+        .back-link:focus-visible span { transform: translateX(-3px); }
+        .success-message[hidden],
+        .back-link[hidden] { display: none; }
+
+        @keyframes success-fade-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        main.success-state > h1,
+        main.success-state > .divider,
+        main.success-state > .success-message,
+        main.success-state > .back-link {
+            animation: success-fade-in 700ms ease-out both;
+        }
+
+        main.success-state > .divider { animation-delay: 100ms; }
+        main.success-state > .success-message { animation-delay: 200ms; }
+        main.success-state > .back-link { animation-delay: 300ms; }
+
+        main.returning-state > h1,
+        main.returning-state > .divider,
+        main.returning-state > .lead,
+        main.returning-state > form {
+            animation: success-fade-in 700ms ease-out both;
+        }
+
+        main.returning-state > .divider { animation-delay: 100ms; }
+        main.returning-state > .lead { animation-delay: 200ms; }
+        main.returning-state > form { animation-delay: 300ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            main.success-state > h1,
+            main.success-state > .divider,
+            main.success-state > .success-message,
+            main.success-state > .back-link,
+            main.returning-state > h1,
+            main.returning-state > .divider,
+            main.returning-state > .lead,
+            main.returning-state > form {
+                animation: none;
+            }
+        }
+
+        form { display: flex; flex-direction: column; gap: 16px; }
+        form[hidden] { display: none; }
+
+        .field-error {
+            color: #c084ff;
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .field-error[hidden] { display: none; }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+        }
+
+        input[type="email"]::placeholder { color: #fff; opacity: 1; }
+        input[type="email"]:focus-visible { border-width: 2px; }
+        input[aria-invalid="true"] { border-color: #a855f7; }
+
+        button {
+            padding: 16px;
+            border: 1px solid #fff;
+            background: #fff;
+            color: #1a1a1a;
+            font: inherit;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button:hover, button:focus-visible { opacity: 0.82; }
+
+        .consent {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .consent input { margin-top: 3px; }
+        .consent a { color: inherit; }
+
+        @media (max-width: 700px) {
+            main { padding: 36px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header site-header">
+        <a href="index.html" class="logo">LÆTITIA BILL</a>
+    </header>
+
+    <main>
+        <h1>COMING SOON</h1>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="lead">Our first collection is coming soon.<br>Leave your email to be the first to know.</p>
+        <p class="success-message" role="status" aria-live="polite" hidden>You're on the list. We'll be in touch as soon as our debut collection launches.</p>
+        <a class="back-link" href="#email-input" hidden><span aria-hidden="true">←</span> BACK</a>
+
+        <form action="HIER-MAILERLITE-URL" method="post" novalidate>
+            <input id="email-input" type="email" name="fields[email]" placeholder="EMAIL ADRESS" aria-label="Email address" aria-describedby="email-error" required>
+            <p class="field-error" id="email-error" role="alert" hidden></p>
+
+            <label class="consent">
+                <input type="checkbox" aria-describedby="consent-error" required>
+                <span>I agree to receive emails from LÆTITIA BILL. You can unsubscribe at any time. See our <a href="legal.html#privacy">Privacy Policy</a>.</span>
+            </label>
+            <p class="field-error" id="consent-error" role="alert" hidden></p>
+
+            <button type="submit">NOTIFY ME</button>
+        </form>
+    </main>
+
+    <script>
+        const subscribeForm = document.querySelector("form");
+        const heading = document.querySelector("main h1");
+        const lead = document.querySelector(".lead");
+        const successMessage = document.querySelector(".success-message");
+        const backLink = document.querySelector(".back-link");
+        const emailInput = subscribeForm.querySelector('input[type="email"]');
+        const consentInput = subscribeForm.querySelector('input[type="checkbox"]');
+        const emailError = document.querySelector("#email-error");
+        const consentError = document.querySelector("#consent-error");
+        const main = subscribeForm.closest("main");
+
+        const clearError = (input, message) => {
+            input.removeAttribute("aria-invalid");
+            message.hidden = true;
+            message.textContent = "";
+        };
+
+        emailInput.addEventListener("input", () => clearError(emailInput, emailError));
+        consentInput.addEventListener("change", () => clearError(consentInput, consentError));
+
+        backLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            main.classList.remove("success-state");
+            heading.textContent = "COMING SOON";
+            heading.classList.remove("success-heading");
+            lead.hidden = false;
+            successMessage.hidden = true;
+            backLink.hidden = true;
+            subscribeForm.hidden = false;
+            emailInput.value = "";
+            consentInput.checked = false;
+            clearError(emailInput, emailError);
+            clearError(consentInput, consentError);
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                main.classList.add("returning-state");
+                subscribeForm.addEventListener("animationend", (event) => {
+                    if (event.animationName === "success-fade-in") {
+                        main.classList.remove("returning-state");
+                    }
+                }, { once: true });
+            }
+            emailInput.focus();
+        });
+
+        subscribeForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const emailIsValid = emailInput.validity.valid;
+            const consentIsChecked = consentInput.checked;
+
+            clearError(emailInput, emailError);
+            clearError(consentInput, consentError);
+
+            if (!emailIsValid) {
+                emailInput.setAttribute("aria-invalid", "true");
+                emailError.textContent = emailInput.validity.valueMissing
+                    ? "Please enter your email address."
+                    : "Please enter a valid email address.";
+                emailError.hidden = false;
+            }
+
+            if (!consentIsChecked) {
+                consentInput.setAttribute("aria-invalid", "true");
+                consentError.textContent = "Please agree to receive emails to continue.";
+                consentError.hidden = false;
+            }
+
+            if (!emailIsValid || !consentIsChecked) {
+                (emailIsValid ? consentInput : emailInput).focus();
+                return;
+            }
+
+            subscribeForm.hidden = true;
+            main.classList.add("success-state");
+            heading.textContent = "THANK YOU";
+            heading.classList.add("success-heading");
+            lead.hidden = true;
+            successMessage.hidden = false;
+            backLink.hidden = false;
+        });
+    </script>
+
+</body>
+</html>
