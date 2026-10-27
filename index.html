@@ -234,7 +234,10 @@
         </form>
     </main>
 
-    <script>
+        <script>
+        const KLAVIYO_COMPANY_ID = "DEIN_PUBLIC_KEY";
+        const KLAVIYO_LIST_ID = "DEINE_LIST_ID";
+
         const subscribeForm = document.querySelector("form");
         const heading = document.querySelector("main h1");
         const lead = document.querySelector(".lead");
@@ -279,7 +282,7 @@
             emailInput.focus();
         });
 
-        subscribeForm.addEventListener("submit", (event) => {
+        subscribeForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             const emailIsValid = emailInput.validity.valid;
             const consentIsChecked = consentInput.checked;
@@ -306,6 +309,48 @@
                 return;
             }
 
+            const submitButton = subscribeForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(
+                    "https://a.klaviyo.com/client/subscriptions/?company_id=" + KLAVIYO_COMPANY_ID,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "revision": "2024-10-15"
+                        },
+                        body: JSON.stringify({
+                            data: {
+                                type: "subscription",
+                                attributes: {
+                                    custom_source: "Coming Soon Page",
+                                    profile: {
+                                        data: {
+                                            type: "profile",
+                                            attributes: { email: emailInput.value.trim() }
+                                        }
+                                    }
+                                },
+                                relationships: {
+                                    list: { data: { type: "list", id: KLAVIYO_LIST_ID } }
+                                }
+                            }
+                        })
+                    }
+                );
+                if (!response.ok) throw new Error("Klaviyo error " + response.status);
+            } catch (error) {
+                console.error(error);
+                submitButton.disabled = false;
+                emailInput.setAttribute("aria-invalid", "true");
+                emailError.textContent = "Something went wrong. Please try again.";
+                emailError.hidden = false;
+                return;
+            }
+
+            submitButton.disabled = false;
             subscribeForm.hidden = true;
             main.classList.add("success-state");
             heading.textContent = "THANK YOU";
